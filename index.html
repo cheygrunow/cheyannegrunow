@@ -17,7 +17,10 @@
       --ink-2: #4a4a46;
       --ink-3: #8a8a84;
       --rule: #e0ddd6;
-      --accent: #1a1a18;
+--accent: #C4622D;
+--terracotta: #C4622D;
+--terracotta-light: #FAECE7;
+--terracotta-dark: #993C1D;
       --tag-bg: #f0ede8;
       --serif: 'DM Serif Display', Georgia, serif;
       --sans: 'DM Sans', system-ui, sans-serif;
@@ -73,7 +76,8 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--ink); }
+.nav-links a:hover { color: #C4622D; }
+
 
     /* ── HERO ── */
     .hero {
@@ -120,19 +124,19 @@
       align-items: center;
     }
 
-    .btn-primary {
-      display: inline-block;
-      padding: 0.7rem 1.75rem;
-      background: var(--ink);
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: opacity 0.2s;
-    }
+ .btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.75rem;
+  background: #C4622D;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+}
     .btn-primary:hover { opacity: 0.75; }
 
     .btn-ghost {
@@ -165,13 +169,14 @@
       padding: 80px 2rem;
     }
 
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 3rem;
-    }
+  .section-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #C4622D;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
 
     /* ── ABOUT ── */
     .about-grid {
@@ -258,7 +263,8 @@
     }
 
     .portfolio-item:first-child { border-top: 1px solid var(--rule); }
-
+.portfolio-item { border-left: 3px solid transparent; padding-left: 1rem; transition: border-color 0.2s; }
+.portfolio-item:hover { border-left-color: #C4622D; }
     .portfolio-item:hover .item-title { color: var(--ink-3); }
 
     .item-num {
@@ -272,13 +278,13 @@
 
     .item-body {}
 
-    .item-category {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 0.4rem;
-    }
+.item-category {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C4622D;
+  margin-bottom: 0.4rem;
+}
 
     .item-title {
       font-family: var(--serif);
@@ -696,7 +702,7 @@
 
   <hr class="section-rule" />
 
-  <!-- CONTACT -->
+<!-- CONTACT -->
   <section class="section" id="contact">
     <p class="section-label">Contact</p>
     <div class="contact-grid">
@@ -707,15 +713,15 @@
         </p>
         <a href="mailto:cheyanne.grunow@gmail.com" class="btn-primary">Send an Email</a>
       </div>
-
       <div class="contact-links">
         <a href="https://linkedin.com/in/cheyannegrunow" target="_blank" class="contact-link">
           <span class="contact-link-label">LinkedIn</span>
           <span>Learning Designer · Multilingual Education · Barcelona ↗</span>
         </a>
+        <div class="contact-link" style="cursor: default;">
           <span class="contact-link-label">Email</span>
           <span>cheyanne.grunow@gmail.com</span>
-        </a>
+        </div>
         <div class="contact-link" style="cursor: default;">
           <span class="contact-link-label">Location</span>
           <span>Barcelona, Spain · EU Work Authorization</span>
@@ -731,7 +737,7 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-name">Cheyanne Grunow</span>
-    <span class="footer-note">Learning Designer · Barcelona · 2025</span>
+    <span class="footer-note">Learning Designer · Barcelona · 2026</span>
   </footer>
 
 </body>

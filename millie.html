@@ -509,7 +509,7 @@
     /* BIG SECTION HEADINGS */
     .section-heading {
       font-family: var(--serif);
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
       font-weight: 400;
       line-height: 1.1;
       margin-bottom: 2rem;
@@ -622,26 +622,12 @@
     <!-- PROBLEM + SOLUTION -->
     <section class="section">
       <h2 class="section-heading">Overview</h2>
-      <div class="flow-row">
-        <div class="flow-block">
-          <div class="flow-block-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </div>
-          <p class="flow-block-label">The Problem</p>
-          <h3>Teachers lack accessible, actionable guidance for multilingual learners.</h3>
-          <p>Multilingual learners are one of the fastest-growing student demographics in the U.S. Most teachers receive inadequate training and, despite good intentions, make instructional decisions that underserve this population — oversimplifying content, over-translating materials, or missing key scaffolding opportunities entirely.</p>
+      <div class="flow-row" style="align-items: center; gap: 1.5rem;">
+        <p style="flex: 1; font-family: var(--serif); font-size: clamp(1.15rem, 2.5vw, 1.5rem); line-height: 1.35; color: var(--ink); font-weight: 400;">Teachers lack accessible, actionable guidance for multilingual learners.</p>
+        <div class="flow-arrow" style="padding: 0; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" style="width: 48px; height: 48px; stroke: var(--terracotta); fill: none; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; opacity: 0.7;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </div>
-        <div class="flow-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <div class="flow-block">
-          <div class="flow-block-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <p class="flow-block-label">The Solution</p>
-          <h3>An AI coach that recommends, explains, and builds materials on demand.</h3>
-          <p>MiLLie provides research-aligned instructional strategies, explains why they work, and follows through by generating scaffolded materials, lesson adaptations, and vocabulary resources tailored to the teacher's specific context — grade level, proficiency level, and content area.</p>
-        </div>
+        <p style="flex: 1; font-family: var(--serif); font-size: clamp(1.15rem, 2.5vw, 1.5rem); line-height: 1.35; color: var(--terracotta); font-weight: 400; font-style: italic;">An AI coach that recommends, explains, and builds materials on demand.</p>
       </div>
     </section>
 
@@ -659,7 +645,6 @@
           </div>
           <div class="profile-card-body">
             <p>Still developing their practice, with little practical training for diverse learners. Encounters multilingual students without a framework for what good instruction looks like.</p>
-            <p class="profile-need">Needs: actionable strategies + ready-to-use materials, fast.</p>
           </div>
         </div>
 
@@ -672,7 +657,6 @@
           </div>
           <div class="profile-card-body">
             <p>Experienced educator suddenly serving multilingual learners for the first time — or facing a new influx of language backgrounds and mixed proficiency levels mid-year.</p>
-            <p class="profile-need">Needs: context-specific advice, not generic best practices.</p>
           </div>
         </div>
 
@@ -685,7 +669,6 @@
           </div>
           <div class="profile-card-body">
             <p>Supporting a cohort of educators with varying needs and contexts. Needs to generate exemplar materials at scale and deliver advice that transfers across different classrooms.</p>
-            <p class="profile-need">Needs: scalable output + pedagogically sound reasoning.</p>
           </div>
         </div>
 

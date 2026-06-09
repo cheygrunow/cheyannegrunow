@@ -11,17 +11,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #1a1a18;
-      --bg-2: #222220;
-      --bg-3: #2a2a27;
-      --surface: #2e2e2b;
-      --ink: #f0ede8;
-      --ink-2: #b8b5ae;
-      --ink-3: #6e6e68;
-      --rule: #383834;
+      --bg: #f4f2ee;
+      --bg-2: #eeece7;
+      --bg-3: #e8e5df;
+      --surface: #ffffff;
+      --ink: #1a1a18;
+      --ink-2: #4a4a46;
+      --ink-3: #8a8a84;
+      --rule: #dddad2;
       --terracotta: #C4622D;
-      --terracotta-light: #3d2318;
-      --terracotta-bright: #e07a4a;
+      --terracotta-light: #FAECE7;
+      --terracotta-dark: #993C1D;
       --serif: 'DM Serif Display', Georgia, serif;
       --sans: 'DM Sans', system-ui, sans-serif;
       --mono: 'DM Mono', monospace;
@@ -42,7 +42,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(26, 26, 24, 0.92);
+      background: rgba(244, 242, 238, 0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--rule);
       padding: 0 2rem;
@@ -70,9 +70,9 @@
       gap: 0.4rem;
       transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--terracotta-bright); }
+    .nav-back:hover { color: var(--terracotta); }
 
-    /* HERO — dark with accent stripe */
+    /* HERO */
     .hero {
       padding: 110px 2rem 72px;
       max-width: 900px;
@@ -84,13 +84,11 @@
       align-items: start;
     }
 
-    .hero-left {}
-
     .hero-eyebrow {
       font-family: var(--mono);
       font-size: 0.72rem;
       letter-spacing: 0.08em;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
       margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
@@ -116,7 +114,7 @@
 
     .hero h1 em {
       font-style: italic;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
     }
 
     .hero-desc {
@@ -143,9 +141,7 @@
     }
 
     /* ARTIFACTS SIDEBAR */
-    .hero-right {
-      padding-top: 0.25rem;
-    }
+    .hero-right { padding-top: 0.25rem; }
 
     .sidebar-label {
       font-family: var(--mono);
@@ -171,7 +167,7 @@
       font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.08em;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
       margin-bottom: 0.4rem;
     }
 
@@ -193,7 +189,7 @@
     .artifact-link {
       font-family: var(--mono);
       font-size: 0.75rem;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
       text-decoration: none;
       letter-spacing: 0.04em;
       transition: opacity 0.2s;
@@ -219,7 +215,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
       margin-bottom: 2rem;
       display: flex;
       align-items: center;
@@ -279,7 +275,7 @@
     }
 
     .persona-card {
-      background: var(--bg-2);
+      background: var(--surface);
       border: 1px solid var(--rule);
       border-left: 3px solid var(--terracotta);
       border-radius: 4px;
@@ -316,7 +312,7 @@
     .decision-label {
       font-family: var(--mono);
       font-size: 0.78rem;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
       padding-top: 0.15rem;
       line-height: 1.5;
     }
@@ -347,7 +343,7 @@
       font-family: var(--serif);
       font-size: 1.6rem;
       font-weight: 400;
-      color: var(--terracotta-bright);
+      color: var(--terracotta);
       line-height: 1;
       margin-bottom: 0.5rem;
     }

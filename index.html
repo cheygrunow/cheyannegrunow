@@ -251,7 +251,7 @@
       letter-spacing: 0.02em;
     }
 
-    /* PORTFOLIO */
+    /* PORTFOLIO — redesigned */
     .portfolio-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -259,85 +259,171 @@
     }
 
     .portfolio-card {
-      display: flex;
-      flex-direction: column;
-      padding: 1.75rem;
       background: #fff;
       border: 1px solid var(--rule);
-      border-top: 3px solid var(--terracotta);
-      border-radius: 4px;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
     .portfolio-card:hover {
-      box-shadow: 0 6px 24px rgba(196, 98, 45, 0.1);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
       transform: translateY(-2px);
     }
 
+    .card-header {
+      background: var(--terracotta-light);
+      border-bottom: 1px solid #f0d5c8;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .card-header-left {}
+
     .card-category {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--terracotta);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       font-weight: 500;
     }
 
     .card-title {
       font-family: var(--serif);
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 400;
       line-height: 1.2;
-      margin-bottom: 0.75rem;
       color: var(--ink);
     }
 
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #f0d5c8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-body {
+      padding: 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .card-desc {
-      font-size: 0.88rem;
+      font-size: 0.875rem;
       color: var(--ink-2);
       line-height: 1.65;
-      margin-bottom: 1.25rem;
-      flex: 1;
+      margin-bottom: 1.1rem;
     }
 
     .card-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      gap: 0.35rem;
       margin-bottom: 1.25rem;
     }
 
     .card-tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.65rem;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
       background: var(--tag-bg);
       color: var(--ink-3);
       border-radius: 3px;
+      letter-spacing: 0.01em;
     }
 
-    .card-link {
+    .card-links {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      margin-bottom: -1.25rem;
+    }
+
+    .card-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: var(--ink-2);
+      font-size: 0.83rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .card-link-row:last-child { border-bottom: none; }
+
+    .card-link-row:hover {
+      background: var(--terracotta-light);
+      color: var(--terracotta-dark);
+    }
+
+    .card-link-row span { flex: 1; }
+
+    .card-link-arrow {
+      font-size: 0.85rem;
+      color: var(--terracotta);
+      opacity: 0.6;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .card-link-row:hover .card-link-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* single CTA link (MiLLie card) */
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 1rem;
       font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--terracotta);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: auto;
+      text-decoration: none;
+      border-top: 1px solid var(--rule);
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      margin-bottom: -1.25rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1.25rem;
+      transition: background 0.15s;
     }
 
-    .card-link::after {
-      content: '→';
-      transition: transform 0.2s;
-    }
+    .card-cta:hover { background: var(--terracotta-light); }
 
-    .portfolio-card:hover .card-link::after {
-      transform: translateX(4px);
-    }
+    .card-cta::after { content: '→'; }
 
     /* WORK HISTORY */
     .work-list {
@@ -585,79 +671,142 @@
 
     <div class="portfolio-grid">
 
-      <!-- 01 -->
-      <a href="millie.html" class="portfolio-card">
-        <p class="card-category">AI &amp; Innovation</p>
-        <h3 class="card-title">Build MiLLie AI Coach</h3>
-        <p class="card-desc">
-          A custom AI coaching agent built in ChatGPT to support teachers working with multilingual learners. Includes a full product requirements document and the system prompt — showing both the product thinking and the prompt engineering.
-        </p>
-        <div class="card-tags">
-          <span class="card-tag">Prompt Engineering</span>
-          <span class="card-tag">Product Design</span>
-          <span class="card-tag">ChatGPT Custom GPT</span>
-          <span class="card-tag">Multilingual Learners</span>
-        </div>
-        <span class="card-link">View Case Study</span>
-      </a>
-
-      <!-- 02 -->
+      <!-- 01 MiLLie -->
       <div class="portfolio-card">
-        <p class="card-category">Curriculum Design</p>
-        <h3 class="card-title">Curriculum Design</h3>
-        <p class="card-desc">
-          Paired student and teacher editions of an ELD lesson and a business English conversation lesson — each showing the instructional logic behind every design choice. Built to client publishing specifications with ELPAC practice integration.
-        </p>
-        <div class="card-tags">
-          <span class="card-tag">Dual-Track Design</span>
-          <span class="card-tag">ELD Amplification</span>
-          <span class="card-tag">Business English</span>
-          <span class="card-tag">ELPAC</span>
+        <div class="card-header">
+          <div class="card-header-left">
+            <p class="card-category">AI &amp; Innovation</p>
+            <h3 class="card-title">MiLLie AI Coach</h3>
+          </div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
         </div>
-        <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:auto;">
-          <a href="Student and Teacher Curriculum Design .pdf" target="_blank" class="card-link" style="font-size:0.78rem;">Student &amp; Teacher Curriculum Design →</a>
-          <a href="Difficult Conversations Lesson.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">Difficult Conversations Lesson →</a>
+        <div class="card-body">
+          <p class="card-desc">
+            A custom AI coaching agent built in ChatGPT to support teachers working with multilingual learners. Includes a full product requirements document and system prompt — showing both product thinking and prompt engineering.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Prompt Engineering</span>
+            <span class="card-tag">Product Design</span>
+            <span class="card-tag">ChatGPT Custom GPT</span>
+            <span class="card-tag">Multilingual Learners</span>
+          </div>
+          <a href="millie.html" class="card-cta">View Case Study</a>
         </div>
       </div>
 
-      <!-- 03 -->
+      <!-- 02 Curriculum Design -->
       <div class="portfolio-card">
-        <p class="card-category">Educator Support</p>
-        <h3 class="card-title">Educator Support</h3>
-        <p class="card-desc">
-          A suite of bilingual glossaries across three grade bands and two languages, grounded in SLA theory and designed for immediate classroom use. Each glossary pairs English definitions and contextualized examples with native-language translations.
-        </p>
-        <div class="card-tags">
-          <span class="card-tag">Bilingual Glossaries</span>
-          <span class="card-tag">K–12</span>
-          <span class="card-tag">Spanish · Vietnamese</span>
-          <span class="card-tag">SLA Research</span>
+        <div class="card-header">
+          <div class="card-header-left">
+            <p class="card-category">Curriculum Design</p>
+            <h3 class="card-title">Curriculum Design</h3>
+          </div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
         </div>
-        <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:auto;">
-          <a href="Elementary ELA - Spanish Glossary.docx.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">Elementary ELA – Spanish →</a>
-          <a href="Middle School Math - Vietnamese Glossary.docx.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">Middle School Math – Vietnamese →</a>
-          <a href="High School ELA - Spanish Glossary.docx (1).pdf" target="_blank" class="card-link" style="font-size:0.78rem;">High School ELA – Spanish →</a>
-          <a href="ML Activities Suite.docx.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">ML Activities Suite →</a>
+        <div class="card-body">
+          <p class="card-desc">
+            Paired student and teacher editions of an ELD lesson and a business English conversation lesson — each showing the instructional logic behind every design choice. Built to client publishing specifications with ELPAC practice integration.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Dual-Track Design</span>
+            <span class="card-tag">ELD Amplification</span>
+            <span class="card-tag">Business English</span>
+            <span class="card-tag">ELPAC</span>
+          </div>
+          <div class="card-links">
+            <a href="Student and Teacher Curriculum Design .pdf" target="_blank" class="card-link-row">
+              <span>Student &amp; Teacher Curriculum Design</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+            <a href="Difficult Conversations Lesson.pdf" target="_blank" class="card-link-row">
+              <span>Difficult Conversations Lesson</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- 04 -->
+      <!-- 03 Educator Support -->
       <div class="portfolio-card">
-        <p class="card-category">Learning Experiences</p>
-        <h3 class="card-title">Learning Experiences</h3>
-        <p class="card-desc">
-          A bilingual education handbook, an ELL teacher toolkit built around a company-wide sheltered instruction model, and a critical analysis of an AI language learning app — each grounded in SLA research and designed for real classroom and product contexts.
-        </p>
-        <div class="card-tags">
-          <span class="card-tag">Sheltered Instruction</span>
-          <span class="card-tag">Bilingual Education</span>
-          <span class="card-tag">App Critique</span>
-          <span class="card-tag">SLA Research</span>
+        <div class="card-header">
+          <div class="card-header-left">
+            <p class="card-category">Educator Support</p>
+            <h3 class="card-title">Bilingual Glossaries</h3>
+          </div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
         </div>
-        <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:auto;">
-          <a href="Bilingual Education Handbook.docx.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">Bilingual Education Handbook →</a>
-          <a href="ELL Teacher Toolkit.docx.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">ELL Teacher Toolkit →</a>
-          <a href="Language Learning App Critique.pdf" target="_blank" class="card-link" style="font-size:0.78rem;">Language Learning App Critique →</a>
+        <div class="card-body">
+          <p class="card-desc">
+            A suite of bilingual glossaries across three grade bands and two languages, grounded in SLA theory and designed for immediate classroom use. Each glossary pairs English definitions and contextualized examples with native-language translations.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Bilingual Glossaries</span>
+            <span class="card-tag">K–12</span>
+            <span class="card-tag">Spanish · Vietnamese</span>
+            <span class="card-tag">SLA Research</span>
+          </div>
+          <div class="card-links">
+            <a href="Elementary ELA - Spanish Glossary.docx.pdf" target="_blank" class="card-link-row">
+              <span>Elementary ELA – Spanish</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+            <a href="Middle School Math - Vietnamese Glossary.docx.pdf" target="_blank" class="card-link-row">
+              <span>Middle School Math – Vietnamese</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+            <a href="High School ELA - Spanish Glossary.docx (1).pdf" target="_blank" class="card-link-row">
+              <span>High School ELA – Spanish</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+            <a href="ML Activities Suite.docx.pdf" target="_blank" class="card-link-row">
+              <span>ML Activities Suite</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Learning Experiences -->
+      <div class="portfolio-card">
+        <div class="card-header">
+          <div class="card-header-left">
+            <p class="card-category">Learning Experiences</p>
+            <h3 class="card-title">Learning Experiences</h3>
+          </div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">
+            A bilingual education handbook, an ELL teacher toolkit built around a company-wide sheltered instruction model, and a critical analysis of an AI language learning app — each grounded in SLA research and designed for real classroom and product contexts.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Sheltered Instruction</span>
+            <span class="card-tag">Bilingual Education</span>
+            <span class="card-tag">App Critique</span>
+            <span class="card-tag">SLA Research</span>
+          </div>
+          <div class="card-links">
+            <a href="Bilingual Education Handbook.docx.pdf" target="_blank" class="card-link-row">
+              <span>Bilingual Education Handbook</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+            <a href="ELL Teacher Toolkit.docx.pdf" target="_blank" class="card-link-row">
+              <span>ELL Teacher Toolkit</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+            <a href="Language Learning App Critique.pdf" target="_blank" class="card-link-row">
+              <span>Language Learning App Critique</span>
+              <span class="card-link-arrow">→</span>
+            </a>
+          </div>
         </div>
       </div>
 

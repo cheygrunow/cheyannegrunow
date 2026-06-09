@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiLLie — Cheyanne Grunow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f6;
+      --surface: #ffffff;
+      --ink: #1a1a18;
+      --ink-2: #4a4a46;
+      --ink-3: #8a8a84;
+      --rule: #e0ddd6;
+      --terracotta: #C4622D;
+      --terracotta-light: #FAECE7;
+      --terracotta-dark: #993C1D;
+      --tag-bg: #f0ede8;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(249, 248, 246, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--terracotta); }
+
+    /* HERO */
+    .hero {
+      padding: 120px 2rem 80px;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      max-width: 640px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--ink-2);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.8rem;
+      background: var(--terracotta-light);
+      color: var(--terracotta-dark);
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    /* SECTIONS */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: var(--terracotta-light);
+    }
+
+    /* PROBLEM / SOLUTION CARDS */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.75rem;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* PERSONAS */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .persona-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--terracotta);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+
+    .persona-card h4 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .persona-card p {
+      font-size: 0.85rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    /* DESIGN DECISIONS */
+    .decisions {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .decision-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+
+    .decision-item:first-child { border-top: 1px solid var(--rule); }
+
+    .decision-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      padding-top: 0.1rem;
+    }
+
+    .decision-body {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* METRICS */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .metric-num {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      line-height: 1.4;
+    }
+
+    /* ARTIFACTS */
+    .artifacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .artifact-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .artifact-type {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    .artifact-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .artifact-desc {
+      font-size: 0.87rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .artifact-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: auto;
+      transition: opacity 0.2s;
+    }
+    .artifact-link:hover { opacity: 0.7; }
+
+    /* PROSE */
+    .prose {
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    .prose + .prose { margin-top: 1rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      font-style: italic;
+    }
+
+    .footer-note {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+    }
+
+    /* BACK LINK */
+    .back-row {
+      padding: 2.5rem 2rem 0;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .two-col, .artifacts { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .decision-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      nav { padding: 0 1.25rem; }
+      .hero, .content { padding-left: 1.25rem; padding-right: 1.25rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow, .hero h1, .hero-desc, .tag-row {
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .hero-eyebrow { animation-delay: 0.05s; }
+    .hero h1      { animation-delay: 0.2s; }
+    .hero-desc    { animation-delay: 0.35s; }
+    .tag-row      { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-name">Cheyanne Grunow</a>
+    <a href="index.html#work" class="nav-back">← Back to Portfolio</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">AI &amp; Innovation &nbsp;·&nbsp; Case Study</p>
+    <h1>MiLLie: AI Coaching Agent for <em>Multilingual Educators</em></h1>
+    <p class="hero-desc">
+      MiLLie is a GPT-based instructional coaching agent designed from scratch to support teachers working with multilingual learners. This case study includes the full product requirements document and the system prompt — showing both the product thinking behind the tool and the prompt engineering that brings it to life.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Prompt Engineering</span>
+      <span class="tag">Product Design</span>
+      <span class="tag">ChatGPT Custom GPT</span>
+      <span class="tag">Multilingual Learners</span>
+      <span class="tag">Instructional Coaching</span>
+      <span class="tag">SLA Research</span>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <!-- PROBLEM + SOLUTION -->
+    <section class="section">
+      <p class="section-label">Overview</p>
+      <div class="two-col">
+        <div class="card">
+          <p class="card-label">The Problem</p>
+          <h3>Teachers lack accessible, actionable guidance for multilingual learners.</h3>
+          <p>Multilingual learners are one of the fastest-growing student demographics in the U.S. Most teachers receive inadequate training and, despite good intentions, make instructional decisions that underserve this population — oversimplifying content, over-translating materials, or missing key scaffolding opportunities entirely.</p>
+        </div>
+        <div class="card">
+          <p class="card-label">The Solution</p>
+          <h3>An AI coach that recommends, explains, and builds materials on demand.</h3>
+          <p>MiLLie provides research-aligned instructional strategies, explains why they work, and follows through by generating scaffolded materials, lesson adaptations, and vocabulary resources tailored to the teacher's specific context — grade level, proficiency level, and content area.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAS -->
+    <section class="section">
+      <p class="section-label">Who It's For</p>
+      <div class="persona-grid">
+        <div class="persona-card">
+          <h4>Early Career Teachers</h4>
+          <p>Still developing their practice, with little practical training for diverse learners. Need actionable advice, ready-to-use materials, and clear reasoning — fast.</p>
+        </div>
+        <div class="persona-card">
+          <h4>Teachers Facing New Populations</h4>
+          <p>Experienced teachers encountering multilingual learners for the first time, or a sudden influx of new language backgrounds or mixed proficiency levels.</p>
+        </div>
+        <div class="persona-card">
+          <h4>Instructional Coaches</h4>
+          <p>Supporting a cohort of educators with varying needs. Need to generate exemplar materials at scale and pass along advice that works across different classrooms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN DECISIONS -->
+    <section class="section">
+      <p class="section-label">Design Decisions</p>
+      <div class="decisions">
+        <div class="decision-item">
+          <span class="decision-label">Persona design</span>
+          <p class="decision-body">MiLLie was given a specific expert identity — multilingual learner specialist, sheltered instruction practitioner, teacher trainer. This constrains her responses to a defined scope and establishes credibility with the user. A general-purpose AI voice was deliberately avoided.</p>
+        </div>
+        <div class="decision-item">
+          <span class="decision-label">Interaction flow</span>
+          <p class="decision-body">The step-by-step structure mirrors gradual release of responsibility. Steps 1 and 2 gather context before any advice is given, because recommendations without grade level, proficiency level, and topic are too generic to be useful. This is a needs analysis approach applied directly to AI interaction design.</p>
+        </div>
+        <div class="decision-item">
+          <span class="decision-label">Output structure</span>
+          <p class="decision-body">Step 3 always produces two distinct recommendations with no overlap, grounded in pedagogy. This was a deliberate constraint to prevent repetitive or surface-level responses and push the agent toward differentiated thinking.</p>
+        </div>
+        <div class="decision-item">
+          <span class="decision-label">Generative extension</span>
+          <p class="decision-body">Steps 4 through 6 move the teacher from advice to application by offering to generate actual classroom materials. The goal is not information transfer but a usable product the teacher can implement the next day. This reflects task-based learning principles at the tool design level.</p>
+        </div>
+        <div class="decision-item">
+          <span class="decision-label">Guardrails</span>
+          <p class="decision-body">Guardrails were built in to prevent prompt leakage, off-topic responses, and collection of student information. These reflect responsible AI design practices alongside instructional ones.</p>
+        </div>
+        <div class="decision-item">
+          <span class="decision-label">Iterative build plan</span>
+          <p class="decision-body">The PRD structures development across four versioned releases with increasing quality targets — from 60-70% accurate generations at prototype stage to 80-90% at MVP release — measured by a composite output rating rubric and NPS targets. Design decisions are testable, not subjective.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS METRICS -->
+    <section class="section">
+      <p class="section-label">Success Metrics</p>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <p class="metric-num">80–90%</p>
+          <p class="metric-label">Target accurate generations at MVP release</p>
+        </div>
+        <div class="metric-card">
+          <p class="metric-num">+30–50</p>
+          <p class="metric-label">Target NPS at early release MVP</p>
+        </div>
+        <div class="metric-card">
+          <p class="metric-num">1–2 hrs</p>
+          <p class="metric-label">Weekly planning time saved per teacher</p>
+        </div>
+        <div class="metric-card">
+          <p class="metric-num">50%</p>
+          <p class="metric-label">Users who find advice informative at MVP</p>
+        </div>
+      </div>
+      <p class="prose">Success is measured across four dimensions: output accuracy, user satisfaction, time savings, and educator learning. Each version has distinct targets, making the tool's progress trackable and the design decisions defensible.</p>
+    </section>
+
+    <!-- ARTIFACTS -->
+    <section class="section">
+      <p class="section-label">Project Artifacts</p>
+      <div class="artifacts">
+        <div class="artifact-card">
+          <p class="artifact-type">Product Design</p>
+          <p class="artifact-title">Product Requirements Document</p>
+          <p class="artifact-desc">Full PRD covering problem definition, user personas, feature specifications, interaction flow, output quality criteria, guardrails, and a versioned development and release plan.</p>
+          <a href="MiLLie_Coach_Prompt__V3__docx.pdf" class="artifact-link" target="_blank">View PRD →</a>
+        </div>
+        <div class="artifact-card">
+          <p class="artifact-type">Prompt Engineering</p>
+          <p class="artifact-title">Agent Design &amp; System Prompt</p>
+          <p class="artifact-desc">The system prompt that drives MiLLie's behavior — including her persona, task logic, step-by-step interaction flow, output constraints, and guardrails against prompt leakage.</p>
+          <a href="MiLLie_Coach_Prompt__V3__docx.pdf" class="artifact-link" target="_blank">View System Prompt →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="section">
+      <p class="section-label">Reflection</p>
+      <p class="prose">MiLLie sits at the intersection of instructional design and product thinking — which is what made it interesting to build. Writing the PRD forced me to define success before touching the prompt, and the prompt engineering work forced me to translate pedagogical principles into interaction constraints. Neither document works without the other.</p>
+      <p class="prose" style="margin-top:1rem;">The bigger insight was that AI tools for educators fail when they prioritize breadth over depth. MiLLie is narrow by design — she knows multilingual learner pedagogy well and refuses to be pulled off topic. That constraint is a feature, not a limitation.</p>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Cheyanne Grunow</span>
+    <span class="footer-note">© 2026 · cheygrunow.github.io</span>
+  </footer>
+
+</body>
+</html>
